@@ -6,6 +6,7 @@ import 'package:exercise_app/ui/widgets/gallery_widget.dart';
 import 'package:exercise_app/ui/widgets/news_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../services/local_notification_service.dart';
 import '../../services/network_service.dart';
 import '../../ui/widgets/loading_widgets/check_loading.dart';
 import '../../ui/widgets/loading_widgets/contact_loading.dart';
@@ -45,10 +46,10 @@ class HomeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  currentPage(int index) {
+  currentPage(int index,LocalNotificationService service) {
     switch (index) {
       case 0:
-        return newsWidget(posts, comments);
+        return newsWidget(posts, comments, service);
       case 1:
         return galleryWidget(gallery);
       case 2:

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../utils/contants.dart';
 
-Container commentItem(index, comments, i) {
+Container commentItem(index, comments, int i) {
   return Container(
                     width: double.infinity,
                     padding: const EdgeInsets.all(15),
