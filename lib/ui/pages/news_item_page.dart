@@ -60,8 +60,8 @@ class NewsItemPage extends StatelessWidget {
                 shrinkWrap: true,
                 physics: const ClampingScrollPhysics(),
                 itemCount: 2,
-                itemBuilder: (BuildContext context, int index) {
-                  return commentItem(this.index, comments, index);
+                itemBuilder: (BuildContext context, int i) {
+                  return commentItem(index, comments, i);
                 },
               ),
             ),

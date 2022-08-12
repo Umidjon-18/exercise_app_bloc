@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/contants.dart';
 import 'check_item.dart';
 
 SafeArea checkWidget(List<dynamic> check) {
   return SafeArea(
       child: Container(
-    color: Colors.black,
+    color: Constants.bgColor,
     child: ListView.builder(
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),

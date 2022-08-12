@@ -1,3 +1,4 @@
+import 'package:exercise_app/utils/contants.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/routes.dart';
@@ -7,7 +8,7 @@ SafeArea galleryWidget(List<dynamic> gallery) {
   return SafeArea(
       child: Container(
     padding: const EdgeInsets.all(10),
-    color: Colors.black,
+    color: Constants.bgColor,
     child: GridView.builder(
       itemCount: gallery.length,
       shrinkWrap: true,

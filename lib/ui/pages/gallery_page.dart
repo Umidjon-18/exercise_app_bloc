@@ -1,11 +1,15 @@
+import 'dart:math';
+
 import 'package:exercise_app/utils/contants.dart';
 import 'package:flutter/material.dart';
 
 class GalleryPage extends StatelessWidget {
   const GalleryPage({required this.pageTitle, Key? key}) : super(key: key);
   final String pageTitle;
+
   @override
   Widget build(BuildContext context) {
+  List<Color> colors = [Colors.white, Colors.red, Colors.blue, Colors.green, Colors.lime, Colors.orange, Colors.amberAccent, Colors.deepOrangeAccent, Colors.teal, Colors.tealAccent];
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -22,7 +26,7 @@ class GalleryPage extends StatelessWidget {
         child: GridView.builder(
           shrinkWrap: true,
           physics: const ClampingScrollPhysics(),
-          itemCount: 50,
+          itemCount: 100,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             mainAxisSpacing: 5,
@@ -30,7 +34,7 @@ class GalleryPage extends StatelessWidget {
           ),
           itemBuilder: (BuildContext context, int index) {
             return Container(
-              color: Colors.grey[350],
+              color: colors[Random.secure().nextInt(colors.length)],
             );
           },
         ),

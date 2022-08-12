@@ -6,7 +6,7 @@ Container newsItem(String title, String body) {
   return Container(
     margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
     decoration: BoxDecoration(
-        color: Constants.bottomNavBarColor,
+        color: Constants.newsItemContainerColor,
         borderRadius: BorderRadius.circular(10)),
     padding: const EdgeInsets.all(15),
     child: Column(

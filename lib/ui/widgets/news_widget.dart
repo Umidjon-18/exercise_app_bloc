@@ -4,7 +4,8 @@ import '../../services/local_notification_service.dart';
 import '../../utils/routes.dart';
 import 'news_item.dart';
 
-SafeArea newsWidget(List<dynamic> posts, List<dynamic> comments,LocalNotificationService service) {
+SafeArea newsWidget(List<dynamic> posts, List<dynamic> comments,
+    LocalNotificationService service) {
   return SafeArea(
       child: Container(
     color: Colors.black,
@@ -14,7 +15,7 @@ SafeArea newsWidget(List<dynamic> posts, List<dynamic> comments,LocalNotificatio
       itemCount: posts.length,
       itemBuilder: (BuildContext context, int index) {
         return GestureDetector(
-          onTap: () async{
+          onTap: () async {
             Navigator.pushNamed(
               context,
               Routes.newsItemPage,
@@ -26,9 +27,9 @@ SafeArea newsWidget(List<dynamic> posts, List<dynamic> comments,LocalNotificatio
               },
             );
             await service.showNotification(
-                          id: 5,
-                          title: 'Post ID: $index',
-                          body: posts[index]["title"]);
+                id: 5,
+                title: 'Post ID: ${index + 1}',
+                body: posts[index]["title"]);
           },
           child: newsItem(posts[index]["title"], posts[index]["body"]),
         );

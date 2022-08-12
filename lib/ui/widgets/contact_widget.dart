@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/contants.dart';
 import '../../utils/routes.dart';
 import 'contact_item.dart';
 
 SafeArea contactWidget(List<dynamic> contacts) {
   return SafeArea(
       child: Container(
-    color: Colors.black,
+    color: Constants.bgColor,
     child: ListView.builder(
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
