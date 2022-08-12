@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/pages/comment_page.dart';
 import '../ui/pages/contact_page.dart';
+import '../ui/pages/googlemap_page.dart';
 
 class Routes {
   static const newsPage = '/';
@@ -12,6 +13,7 @@ class Routes {
   static const contactPage = '/contact';
   static const newsItemPage = '/newsItem';
   static const commentPage = '/comment';
+  static const googleMapPage = '/googleMap';
 
   static Route<dynamic> generateRoute(RouteSettings routeSettings) {
     try {
@@ -62,7 +64,8 @@ class Routes {
               comments: args?['comments'],
             ),
           );
-
+        case googleMapPage:
+          return MaterialPageRoute(builder: (context) => const GoogleMapPage());
         default:
           return MaterialPageRoute(builder: (context) => const HomePage());
       }

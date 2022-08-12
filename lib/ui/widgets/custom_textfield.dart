@@ -13,13 +13,15 @@ Container customTextField(String labelName, String value) {
       controller: textEditingController,
       decoration: InputDecoration(
         enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Color.fromARGB(255, 170, 144, 249), width: 1),
+          borderSide: BorderSide(color: Color(0xff807b9c), width: 1),
         ),
         focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Color.fromARGB(255, 170, 144, 249), width: 1),
+          borderSide: BorderSide(color: Color(0xff807b9c), width: 1),
         ),
         label: Text(labelName),
-        labelStyle: const TextStyle(color: Color.fromARGB(255, 170, 144, 249)),
+        labelStyle: const TextStyle(
+          color: Color(0xff807b9c),
+        ),
       ),
     ),
   );

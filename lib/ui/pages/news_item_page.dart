@@ -20,7 +20,7 @@ class NewsItemPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[900],
+      backgroundColor: Constants.bgColor,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,

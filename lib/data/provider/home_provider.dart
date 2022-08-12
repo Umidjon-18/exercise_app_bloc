@@ -38,10 +38,10 @@ class HomeProvider extends ChangeNotifier {
     state = HomeProviderState.isLoading;
     notifyListeners();
     posts = await Network().getData('posts');
+    comments = await Network().getData('comments');
     gallery = await Network().getData('albums');
     check = await Network().getData('todos');
     contacts = await Network().getData('users');
-    comments = await Network().getData('comments');
     state = HomeProviderState.isDone;
     notifyListeners();
   }
