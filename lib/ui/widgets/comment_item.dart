@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../model/comment_model.dart';
 import '../../utils/contants.dart';
 
-Container commentItem(index, comments, int i) {
+Container commentItem(index,List<CommentModel> comments, int i) {
   return Container(
     width: double.infinity,
     padding: const EdgeInsets.all(15),
@@ -33,7 +34,7 @@ Container commentItem(index, comments, int i) {
             const SizedBox(width: 15),
             Expanded(
               child: Text(
-                comments[index * 5 + i]['name'],
+                comments[index * 5 + i].name??"Empty",
                 style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -44,7 +45,7 @@ Container commentItem(index, comments, int i) {
         ),
         const SizedBox(height: 20),
         Text(
-          comments[index]['body'],
+          comments[index].body??"Empty",
           style: const TextStyle(
               fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
         )

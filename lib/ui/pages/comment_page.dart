@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
+import '../../model/comment_model.dart';
 import '../../utils/contants.dart';
 import '../widgets/comment_item.dart';
 
 class CommentPage extends StatelessWidget {
-  const CommentPage({required this.commentIndex,required this.postTitle,required this.comments,Key? key}) : super(key: key);
+  const CommentPage({required this.commentIndex, required this.postTitle, required this.comments, Key? key})
+      : super(key: key);
   final int commentIndex;
   final String postTitle;
-  final List<dynamic> comments;
+  final List<CommentModel> comments;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[900],
+      backgroundColor: Constants.bgColor,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
@@ -34,9 +36,8 @@ class CommentPage extends StatelessWidget {
               ),
             ),
           ),
-          ],
+        ],
       ),
-    
     );
   }
 }

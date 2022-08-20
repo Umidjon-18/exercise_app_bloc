@@ -3,19 +3,28 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class GoogleMapPage extends StatefulWidget {
-  const GoogleMapPage({Key? key}) : super(key: key);
-
+  const GoogleMapPage({required this.lat, required this.lng, Key? key}) : super(key: key);
+  final double lat;
+  final double lng;
   @override
   State<GoogleMapPage> createState() => _GoogleMapPageState();
 }
 
 class _GoogleMapPageState extends State<GoogleMapPage> {
-  static const LatLng sourceLocation = LatLng(40.366586, 71.778596);
+  late LatLng sourceLocation;
   static const LatLng destination = LatLng(40.366586, 71.778596);
-  static const _initialCameraPosition = CameraPosition(
-    target: sourceLocation,
-    zoom: 16,
-  );
+  late CameraPosition initialCameraPosition;
+
+  @override
+  void initState() {
+    super.initState();
+    sourceLocation = LatLng(widget.lat, widget.lng);
+    initialCameraPosition = CameraPosition(
+      target: sourceLocation,
+      zoom: 16,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,10 +35,8 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
       body: SafeArea(
         child: GoogleMap(
           mapType: MapType.satellite,
-          initialCameraPosition: _initialCameraPosition,
-          markers: {
-            const Marker(markerId: MarkerId('SimplSolution'), position: destination)
-          },
+          initialCameraPosition: initialCameraPosition,
+          markers: {const Marker(markerId: MarkerId('SimplSolution'), position: destination)},
         ),
       ),
     );

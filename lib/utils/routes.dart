@@ -1,10 +1,10 @@
-import 'package:exercise_app/ui/pages/gallery_page.dart';
 import 'package:exercise_app/ui/pages/home_page.dart';
 import 'package:exercise_app/ui/pages/news_item_page.dart';
 import 'package:flutter/material.dart';
 
 import '../ui/pages/comment_page.dart';
 import '../ui/pages/contact_page.dart';
+import '../ui/pages/galleries_page.dart';
 import '../ui/pages/googlemap_page.dart';
 
 class Routes {
@@ -17,8 +17,7 @@ class Routes {
 
   static Route<dynamic> generateRoute(RouteSettings routeSettings) {
     try {
-      Map<String, dynamic>? args =
-          routeSettings.arguments as Map<String, dynamic>?;
+      Map<String, dynamic>? args = routeSettings.arguments as Map<String, dynamic>?;
       args ?? <String, dynamic>{};
       switch (routeSettings.name) {
         case newsPage:
@@ -28,7 +27,7 @@ class Routes {
             builder: (
               context,
             ) =>
-                GalleryPage(
+                GalleriesPage(
               pageTitle: args?['pageTitle'],
             ),
           );
@@ -50,7 +49,6 @@ class Routes {
               index: args?['index'],
               title: args?['title'],
               content: args?['content'],
-              comments: args?['comments'],
             ),
           );
         case commentPage:
@@ -65,7 +63,10 @@ class Routes {
             ),
           );
         case googleMapPage:
-          return MaterialPageRoute(builder: (context) => const GoogleMapPage());
+          return MaterialPageRoute(builder: (context) => GoogleMapPage(
+            lat: args?['lat'],
+            lng: args?['lng'],
+          ));
         default:
           return MaterialPageRoute(builder: (context) => const HomePage());
       }

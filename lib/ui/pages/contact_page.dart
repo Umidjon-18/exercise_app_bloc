@@ -2,11 +2,12 @@ import 'package:exercise_app/utils/contants.dart';
 import 'package:exercise_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 
+import '../../model/contact_model.dart';
 import '../widgets/custom_textfield.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({required this.userData, Key? key}) : super(key: key);
-  final Map<String, dynamic> userData;
+  final ContactModel userData;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +17,7 @@ class ContactPage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Constants.bottomNavBarColor,
         title: Text(
-          userData['name'],
+          userData.name??"Empty",
           style: const TextStyle(fontSize: 22, color: Colors.white),
         ),
       ),
@@ -49,14 +50,14 @@ class ContactPage extends StatelessWidget {
                   const SizedBox(height: 5),
                   // #username
                   Text(
-                    userData['name'],
+                    userData.name??"Empty",
                     style: const TextStyle(fontSize: 18, color: Colors.white),
                   ),
         
                   const SizedBox(height: 5),
                   // #email
                   Text(
-                    userData['email'],
+                    userData.email??"Empty",
                     style: const TextStyle(
                         fontSize: 14, color: Color.fromARGB(255, 147, 100, 249)),
                   ),
@@ -64,22 +65,25 @@ class ContactPage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               // #email field
-              customTextField('E-mail', userData['email']),
+              customTextField('E-mail', userData.email??"Empty"),
               const SizedBox(height: 20),
               // #phone number field
-              customTextField('Phone number', userData['phone']),
+              customTextField('Phone number', userData.phone??"Empty"),
               const SizedBox(height: 20),
               // #website field
-              customTextField('Website', userData['website']),
+              customTextField('Website', userData.website??"Empty"),
               const SizedBox(height: 20),
               // #company field
-              customTextField('Company', userData['company']['name']),
+              customTextField('Company', userData.company!.name??"Empty"),
               const SizedBox(height: 20),
               // #address field
-              customTextField('Adress', userData['address']['street']),
+              customTextField('Adress', userData.address!.street??"Empty"),
               const SizedBox(height: 20),
               GestureDetector(
-                onTap: () => Navigator.pushNamed(context, Routes.googleMapPage),
+                onTap: () => Navigator.pushNamed(context, Routes.googleMapPage, arguments: {
+                  "lat": double.parse(userData.address!.geo!.lat??"0"),
+                  "lng": double.parse(userData.address!.geo!.lng??"0"),
+                }),
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 1),
                   width: 280,
@@ -90,7 +94,7 @@ class ContactPage extends StatelessWidget {
                   ),
                   child: const Center(
                       child: Text(
-                    'Simpl Solution Location😉',
+                    'User Location😉',
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   )),
                 ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../utils/contants.dart';
 
-Container newsItem(String title, String body) {
+Container newsItem(String? title, String? body) {
   return Container(
     margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
     decoration: BoxDecoration(
@@ -13,12 +13,12 @@ Container newsItem(String title, String body) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          title,
+          title??"Empty",
           style: const TextStyle(color: Colors.white, fontSize: 18),
         ),
         const SizedBox(height: 10),
         Text(
-          body,
+          body??"Empty",
           style: const TextStyle(color: Colors.white, fontSize: 16),
         ),
       ],

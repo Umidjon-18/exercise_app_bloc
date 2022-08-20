@@ -59,11 +59,9 @@ class LocalNotificationService {
 
   void onDidReceiveLocalNotification(
       int id, String? title, String? body, String? payload) {
-    print('id $id');
   }
 
   void onSelectNotification(String? payload) {
-    print('payload $payload');
     
   }
 }
